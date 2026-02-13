@@ -1,0 +1,45 @@
+body{
+      background-color: wheat;
+    
+}
+h1{
+      color:red;
+      text-align: center;
+      
+}
+h3{
+      color: black;
+      text-align: center;
+     
+    
+}
+
+P{
+      text-align: center;
+      color: brown;
+     line-height: 30px;
+     font-family: Georgia, 'Times New Roman', Times, serif;
+      
+}
+a{
+      text-decoration: none;
+      color:rgb(red, lab(63.6% -14.18 -8.18), blue)
+}
+
+button{
+      background-color: white;
+      color: blueviolet;
+}
+textarea{
+      
+      font: black;
+      color: #000000;
+}
+span{
+      text-decoration: underline;
+}
+
+   
+
+
+

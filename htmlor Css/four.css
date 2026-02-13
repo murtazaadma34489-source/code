@@ -1,0 +1,23 @@
+* {
+      background-color: beige;
+      text-align: center;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+
+#maintopic h1 {
+      color: blue;
+      background-color: violet;
+
+}
+
+
+#he button {
+      background-color: purple;
+      color: azure;
+}
+
+#he button:hover {
+      color: blue;
+      background-color:yellow;
+}
