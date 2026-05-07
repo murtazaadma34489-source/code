@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Modern Portfolio</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet">
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: #050816;
+        color: white;
+        overflow-x: hidden;
+      }
+
+      body::before {
+        content: '';
+        position: fixed;
+        width: 500px;
+        height: 500px;
+        background: #8b5cf6;
+        filter: blur(180px);
+        opacity: 0.2;
+        top: -100px;
+        right: -100px;
+        z-index: -1;
+      }
+
+      .container {
+        width: 90%;
+        margin: auto;
+      }
+
+      /* NAVBAR */
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 25px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .logo {
+        font-size: 40px;
+        font-weight: 700;
+      }
+
+      .logo span {
+        color: #8b5cf6;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+        gap: 40px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: #d1d5db;
+        transition: 0.3s;
+      }
+
+      nav ul li a:hover {
+        color: #8b5cf6;
+      }
+
+      .cv-btn {
+        padding: 14px 28px;
+        border: 1px solid #8b5cf6;
+        background: transparent;
+        color: white;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .cv-btn:hover {
+        background: #8b5cf6;
+      }
+
+      /* HERO */
+
+      .hero {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 100px 0;
+        gap: 50px;
+      }
+
+      .hero-text {
+        width: 50%;
+      }
+
+      .hero-text small {
+        color: #8b5cf6;
+        letter-spacing: 5px;
+      }
+
+      .hero-text h1 {
+        font-size: 80px;
+        line-height: 100px;
+        margin-top: 20px;
+      }
+
+      .hero-text h1 span {
+        color: #8b5cf6;
+      }
+
+      .hero-text h2 {
+        font-size: 45px;
+        margin-top: 10px;
+        color: #d1d5db;
+      }
+
+      .hero-text p {
+        margin-top: 25px;
+        color: #9ca3af;
+        line-height: 35px;
+        font-size: 18px;
+      }
+
+      .hero-buttons {
+        margin-top: 40px;
+        display: flex;
+        gap: 20px;
+      }
+
+      .btn {
+        padding: 16px 34px;
+        border-radius: 14px;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        transition: 0.3s;
+      }
+
+      .primary {
+        background: #8b5cf6;
+        color: white;
+      }
+
+      .primary:hover {
+        background: #6d28d9;
+      }
+
+      .secondary {
+        background: transparent;
+        border: 1px solid #8b5cf6;
+        color: white;
+      }
+
+      .secondary:hover {
+        background: #8b5cf6;
+      }
+
+      .socials {
+        display: flex;
+        gap: 20px;
+        margin-top: 40px;
+      }
+
+      .socials div {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: #111827;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .socials div:hover {
+        background: #8b5cf6;
+      }
+
+      /* IMAGE */
+
+      .hero-image {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        position: relative;
+      }
+
+      .glow {
+        width: 350px;
+        height: 350px;
+        background: #8b5cf6;
+        border-radius: 50%;
+        position: absolute;
+        filter: blur(120px);
+        opacity: 0.6;
+      }
+
+      .hero-image img {
+        width: 430px;
+        position: relative;
+        z-index: 1;
+        border-radius: 50%;
+      }
+
+      /* BOX */
+
+      .box {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 30px;
+        padding: 40px;
+        margin-top: 40px;
+      }
+
+      /* ABOUT */
+
+      .about {
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+      }
+
+      .about-left {
+        width: 50%;
+      }
+
+      .about-left small {
+        color: #8b5cf6;
+      }
+
+      .about-left h2 {
+        font-size: 50px;
+        margin-top: 15px;
+      }
+
+      .about-left h2 span {
+        color: #8b5cf6;
+      }
+
+      .about-left p {
+        margin-top: 20px;
+        line-height: 35px;
+        color: #9ca3af;
+      }
+
+      .read-btn {
+        margin-top: 30px;
+        padding: 15px 30px;
+        border: 1px solid #8b5cf6;
+        background: transparent;
+        color: white;
+        border-radius: 12px;
+      }
+
+      .about-right {
+        width: 50%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+
+      .card {
+        background: #111827;
+        padding: 30px;
+        border-radius: 20px;
+        transition: 0.4s;
+      }
+
+      .card:hover {
+        transform: translateY(-8px);
+        border: 1px solid #8b5cf6;
+      }
+
+      .card h3 {
+        margin-top: 15px;
+      }
+
+      .card p {
+        color: #9ca3af;
+        margin-top: 8px;
+      }
+
+      /* SKILLS */
+
+      .skills-title {
+        margin-top: 20px;
+      }
+
+      .skills-title small {
+        color: #8b5cf6;
+      }
+
+      .skills-title h2 {
+        font-size: 45px;
+        margin-top: 10px;
+      }
+
+      .skills {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 20px;
+        margin-top: 35px;
+      }
+
+      .skill {
+        background: #111827;
+        padding: 35px;
+        border-radius: 20px;
+        text-align: center;
+        transition: 0.4s;
+      }
+
+      .skill:hover {
+        transform: translateY(-10px);
+        border: 1px solid #8b5cf6;
+      }
+
+      .skill img {
+        width: 55px;
+      }
+
+      .skill h4 {
+        margin-top: 18px;
+      }
+
+      /* SERVICES */
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+        margin-top: 40px;
+      }
+
+      .service-card {
+        background: #111827;
+        padding: 35px;
+        border-radius: 20px;
+        transition: 0.4s;
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+        border: 1px solid #8b5cf6;
+      }
+
+      .service-card h3 {
+        margin-bottom: 15px;
+      }
+
+      .service-card p {
+        color: #9ca3af;
+        line-height: 30px;
+      }
+
+      /* PROJECTS */
+
+      .projects-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 60px;
+      }
+
+      .projects-header small {
+        color: #8b5cf6;
+      }
+
+      .projects-header h2 {
+        font-size: 45px;
+        margin-top: 10px;
+      }
+
+      .project-btn {
+        padding: 15px 28px;
+        border: 1px solid #8b5cf6;
+        background: transparent;
+        color: white;
+        border-radius: 12px;
+      }
+
+      .projects {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+        margin-top: 35px;
+      }
+
+      .project {
+        background: #111827;
+        border-radius: 20px;
+        overflow: hidden;
+        transition: 0.4s;
+      }
+
+      .project:hover {
+        transform: scale(1.03);
+        border: 1px solid #8b5cf6;
+      }
+
+      .project img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+      }
+
+      .project-content {
+        padding: 25px;
+      }
+
+      .project-content h3 {
+        font-size: 24px;
+      }
+
+      .project-content p {
+        margin-top: 10px;
+        color: #9ca3af;
+      }
+
+      /* TESTIMONIAL */
+
+      .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+        margin-top: 40px;
+      }
+
+      .testimonial-card {
+        background: #111827;
+        padding: 35px;
+        border-radius: 20px;
+      }
+
+      .testimonial-card p {
+        line-height: 35px;
+        color: #d1d5db;
+      }
+
+      .testimonial-card h4 {
+        margin-top: 20px;
+        color: #8b5cf6;
+      }
+
+      /* BLOG */
+
+      .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 25px;
+        margin-top: 40px;
+      }
+
+      .blog-card {
+        background: #111827;
+        border-radius: 20px;
+        overflow: hidden;
+      }
+
+      .blog-card img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+      }
+
+      .blog-content {
+        padding: 25px;
+      }
+
+      .blog-content h3 {
+        margin-bottom: 15px;
+      }
+
+      .blog-content p {
+        color: #9ca3af;
+        line-height: 30px;
+      }
+
+      /* CONTACT */
+
+      .contact {
+        display: flex;
+        gap: 40px;
+        margin-top: 60px;
+      }
+
+      .contact-left {
+        width: 40%;
+      }
+
+      .contact-left small {
+        color: #8b5cf6;
+      }
+
+      .contact-left h2 {
+        font-size: 50px;
+        margin-top: 10px;
+      }
+
+      .contact-left p {
+        color: #9ca3af;
+        margin-top: 20px;
+        line-height: 35px;
+      }
+
+      .contact-info {
+        margin-top: 30px;
+      }
+
+      .contact-info div {
+        margin-top: 20px;
+      }
+
+      .contact-right {
+        width: 60%;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .form-row {
+        display: flex;
+        gap: 20px;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 18px;
+        background: #111827;
+        border: none;
+        border-radius: 12px;
+        color: white;
+        outline: none;
+      }
+
+      textarea {
+        height: 180px;
+        resize: none;
+      }
+
+      .send-btn {
+        width: 220px;
+        padding: 18px;
+        border: none;
+        border-radius: 12px;
+        background: #8b5cf6;
+        color: white;
+      }
+
+      /* FOOTER */
+
+      footer {
+        text-align: center;
+        padding: 40px;
+        color: #9ca3af;
+        margin-top: 50px;
+      }
+
+      /* RESPONSIVE */
+
+      @media(max-width:900px) {
+
+        nav ul {
+          display: none;
+        }
+
+        .hero,
+        .about,
+        .contact {
+          flex-direction: column;
+        }
+
+        .hero-text,
+        .hero-image,
+        .about-left,
+        .about-right,
+        .contact-left,
+        .contact-right {
+          width: 100%;
+        }
+
+        .hero-text h1 {
+          font-size: 55px;
+          line-height: 70px;
+        }
+
+        .hero-text h2 {
+          font-size: 32px;
+        }
+
+        .form-row {
+          flex-direction: column;
+        }
+
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <!-- NAVBAR -->
+
+      <nav>
+
+        <div class="logo">
+          A<span>.</span>
+        </div>
+
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <button class="cv-btn">
+          Download CV
+        </button>
+
+      </nav>
+
+      <!-- HERO -->
+
+      <section class="hero">
+
+        <div class="hero-text">
+
+          <small>HELLO, I'M</small>
+
+          <h1>
+          Muhammad<span><br>Murtaza</span>
+          </h1>
+
+          <h2 id="typing"></h2>
+
+          <p>
+            I build modern and responsive websites with attention
+            to detail and great user experience.
+          </p>
+
+          <div class="hero-buttons">
+
+            <button class="btn primary">
+              View My Work
+            </button>
+
+            <button class="btn secondary">
+              Contact Me
+            </button>
+
+          </div>
+
+          <div class="socials">
+
+            <div>G</div>
+            <div>in</div>
+            <div>X</div>
+            <div>IG</div>
+
+          </div>
+
+        </div>
+
+        <div class="hero-image">
+
+          <div class="glow"></div>
+
+          <img src="murtaza.jpeg">
+
+        </div>
+
+      </section>
+
+      <!-- ABOUT -->
+
+      <div class="box about" id="about">
+
+        <div class="about-left">
+
+          <small>ABOUT ME</small>
+
+          <h2>
+            Crafting Digital
+            <span>Experiences</span>
+          </h2>
+
+          <p>
+            I'm a passionate frontend developer who loves creating
+            beautiful and functional websites with pixel-perfect designs.
+          </p>
+
+          <button class="read-btn">
+            Read More About Me
+          </button>
+
+        </div>
+
+        <div class="about-right">
+
+          <div class="card">
+            <h3>2+ Years</h3>
+            <p>Experience</p>
+          </div>
+
+          <div class="card">
+            <h3>20+</h3>
+            <p>Projects</p>
+          </div>
+
+          <div class="card">
+            <h3>10+</h3>
+            <p>Clients</p>
+          </div>
+
+          <div class="card">
+            <h3>India</h3>
+            <p>Location</p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- SKILLS -->
+
+      <div class="box" id="skills">
+
+        <div class="skills-title">
+
+          <small>MY SKILLS</small>
+
+          <h2>Technologies I Work With</h2>
+
+        </div>
+
+        <div class="skills">
+
+          <div class="skill">
+            <img src="https://cdn-icons-png.flaticon.com/512/732/732212.png">
+            <h4>HTML5</h4>
+          </div>
+
+          <div class="skill">
+            <img src="https://cdn-icons-png.flaticon.com/512/732/732190.png">
+            <h4>CSS3</h4>
+          </div>
+
+          <div class="skill">
+            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png">
+            <h4>JavaScript</h4>
+          </div>
+
+          <div class="skill">
+            <img src="https://cdn-icons-png.flaticon.com/512/1126/1126012.png">
+            <h4>React</h4>
+          </div>
+
+          <div class="skill">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg">
+            <h4>Tailwind</h4>
+          </div>
+
+          <div class="skill">
+            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png">
+            <h4>GitHub</h4>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- SERVICES -->
+
+      <div class="box" id="services">
+
+        <div class="skills-title">
+
+          <small>MY SERVICES</small>
+
+          <h2>What I Do</h2>
+
+        </div>
+
+        <div class="services-grid">
+
+          <div class="service-card">
+            <h3>Web Design</h3>
+            <p>
+              Modern and beautiful UI/UX website design.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <h3>Frontend Development</h3>
+            <p>
+              Responsive websites using HTML CSS JavaScript.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <h3>Mobile Responsive</h3>
+            <p>
+              Responsive layouts for mobile tablet and desktop.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- PROJECTS -->
+
+      <div class="projects-header" id="projects">
+
+        <div>
+
+          <small>FEATURED PROJECTS</small>
+
+          <h2>My Recent Work</h2>
+
+        </div>
+
+        <button class="project-btn">
+          View All Projects
+        </button>
+
+      </div>
+
+      <div class="projects">
+
+        <div class="project">
+
+          <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=1200&auto=format&fit=crop">
+
+          <div class="project-content">
+
+            <h3>E-Commerce Website</h3>
+
+            <p>React, Tailwind CSS</p>
+
+          </div>
+
+        </div>
+
+        <div class="project">
+
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop">
+
+          <div class="project-content">
+
+            <h3>Analytics Dashboard</h3>
+
+            <p>React Dashboard UI</p>
+
+          </div>
+
+        </div>
+
+        <div class="project">
+
+          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop">
+
+          <div class="project-content">
+
+            <h3>Portfolio Website</h3>
+
+            <p>HTML CSS JavaScript</p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- TESTIMONIALS -->
+
+      <div class="box">
+
+        <div class="skills-title">
+
+          <small>TESTIMONIALS</small>
+
+          <h2>What Clients Say</h2>
+
+        </div>
+
+        <div class="testimonial-grid">
+
+          <div class="testimonial-card">
+
+            <p>
+              Amazing portfolio design and modern frontend skills.
+            </p>
+
+            <h4>- John Smith</h4>
+
+          </div>
+
+          <div class="testimonial-card">
+
+            <p>
+              Professional developer with clean coding structure.
+            </p>
+
+            <h4>- Alex Johnson</h4>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- BLOG -->
+
+      <div class="box">
+
+        <div class="skills-title">
+
+          <small>MY BLOG</small>
+
+          <h2>Latest Articles</h2>
+
+        </div>
+
+        <div class="blog-grid">
+
+          <div class="blog-card">
+
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop">
+
+            <div class="blog-content">
+
+              <h3>Modern Web Design Trends</h3>
+
+              <p>
+                Learn latest frontend UI design trends.
+              </p>
+
+            </div>
+
+          </div>
+
+          <div class="blog-card">
+
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop">
+
+            <div class="blog-content">
+
+              <h3>React Portfolio Tutorial</h3>
+
+              <p>
+                Build beautiful portfolio websites step by step.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- CONTACT -->
+
+      <div class="box contact" id="contact">
+
+        <div class="contact-left">
+
+          <small>GET IN TOUCH</small>
+
+          <h2>Let's Work Together</h2>
+
+          <p>
+            I'm currently available for freelance work.
+            Feel free to reach out to me!
+          </p>
+
+          <div class="contact-info">
+
+            <div>hello@amanverma.dev</div>
+
+            <div>+91 98765 43210</div>
+
+            <div>India</div>
+
+          </div>
+
+        </div>
+
+        <div class="contact-right">
+
+          <form>
+
+            <div class="form-row">
+
+              <input type="text" placeholder="Your Name">
+
+              <input type="email" placeholder="Your Email">
+
+            </div>
+
+            <input type="text" placeholder="Subject">
+
+            <textarea placeholder="Your Message"></textarea>
+
+            <button class="send-btn">
+              Send Message
+            </button>
+
+          </form>
+
+        </div>
+
+      </div>
+
+      <!-- FOOTER -->
+
+      <footer>
+
+        © 2026 Aman Verma Portfolio. All Rights Reserved.
+
+      </footer>
+
+    </div>
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+      const text = "Frontend Developer";
+
+      let i = 0;
+
+      function typing() {
+
+        if (i < text.length) {
+
+          document.getElementById("typing").innerHTML += text.charAt(i);
+
+          i++;
+
+          setTimeout(typing, 100);
+
+        }
+
+      }
+
+      typing();
+
+    </script>
+
+  </body>
+
+</html>
